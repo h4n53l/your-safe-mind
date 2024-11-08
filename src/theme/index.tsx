@@ -8,7 +8,6 @@ function ThemeProvider({ children }:{ children: React.ReactNode}) {
         theme = {{
             token: {
                 colorPrimary: "#04936E",
-                colorBgContainer: "#04936E",
                 borderRadius: 2,
                 controlOutline: "none",
             },

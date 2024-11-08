@@ -1,7 +1,7 @@
 "use server";
 
 import { IUser } from "@/interfaces";
-import UserModel from "@/models/user-model";
+import UserModel from "@/model/user-model";
 import { currentUser } from "@clerk/nextjs/server";
 import { revalidatePath } from "next/cache";
 
