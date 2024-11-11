@@ -1,23 +1,5 @@
 export const specializations = [
-    { label: "Cardiologist", value: "cardiologist" },
-    { label: "Dentist", value: "dentist" },
-    { label: "Dermatologist", value: "dermatologist" },
-    { label: "Endocrinologist", value: "endocrinologist" },
-    { label: "Gastroenterologist", value: "gastroenterologist" },
-    { label: "General Practitioner", value: "general_practitioner" },
-    { label: "Gynecologist", value: "gynecologist" },
-    { label: "Hematologist", value: "hematologist" },
-    { label: "Neurologist", value: "neurologist" },
-    { label: "Oncologist", value: "oncologist" },
-    { label: "Ophthalmologist", value: "ophthalmologist" },
-    { label: "Orthopedist", value: "orthopedist" },
-    { label: "Otolaryngologist", value: "otolaryngologist" },
-    { label: "Pediatrician", value: "pediatrician" },
-    { label: "Psychiatrist", value: "psychiatrist" },
-    { label: "Pulmonologist", value: "pulmonologist" },
-    { label: "Radiologist", value: "radiologist" },
-    { label: "Rheumatologist", value: "rheumatologist" },
-    { label: "Urologist", value: "urologist" },
+    { label: "Therapist", value: "therapist" },
   ];
   
   export const workDays = [

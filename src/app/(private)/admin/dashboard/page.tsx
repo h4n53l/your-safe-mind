@@ -6,6 +6,8 @@ import DashboardCard from "./_components/dashboard-card";
 import AppointmentsTable from "../appointments/_components/appointments-table";
 import ServerComponentsSpinner from "@/components/server-components-spinner";
 
+
+
 async function DashboardPage() {
   const { success, data }: any = await getDashboardData();
   if (!success) {

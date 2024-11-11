@@ -2,7 +2,9 @@ import React from 'react'
 
 function Spinner() {
   return (
-    <div className='w-10 h-10 border-8 border-primary border-t-transparent rounded-full animate-spin'></div>
+    <div className="flex justify-center">
+        <img src="./logo.gif" className="h-1/2" />
+      </div>
   )
 }
 

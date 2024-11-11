@@ -29,7 +29,7 @@ const userSchema = new mongoose.Schema(
       default: false,
     },
   },
-  { timestamps: true }
+  { timestamps: true, strict: true}
 );
 
 if (mongoose.models && mongoose.models.users) {
@@ -37,4 +37,6 @@ if (mongoose.models && mongoose.models.users) {
 }
 
 const UserModel = mongoose.model("users", userSchema);
+
+
 export default UserModel;

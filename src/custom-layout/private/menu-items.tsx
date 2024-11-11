@@ -58,6 +58,7 @@ function MenuItems({ showMenuItems, setShowMenuItems }: MenuItemsProps) {
   const handleSignOut = async () => {
     try {
       await signOut();
+      router.push("/")
       message.success("Signed out successfully");
     } catch (error: any) {
       message.error(error.message);

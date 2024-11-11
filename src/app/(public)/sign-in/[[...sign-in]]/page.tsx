@@ -1,9 +1,15 @@
-import { SignIn } from "@clerk/nextjs";
+import { SignIn, useAuth, useClerk } from "@clerk/nextjs";
+
 
 export default function Page() {
+
+
   return (
     <div className="flex justify-center items-center h-screen">
-      <SignIn fallbackRedirectUrl="/admin/dashboard" />;
+      {/* <SignIn fallbackRedirectUrl="/admin/dashboard" /> */}
+      <SignIn 
+      fallbackRedirectUrl={"/admin/dashboard"} 
+    />
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 1440 320"

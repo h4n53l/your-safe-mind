@@ -18,7 +18,10 @@ export const createUser = async () => {
     };
 
     const newUser = new UserModel(mongoDBUserObj);
-    await newUser.save();
+
+    await newUser.save()
+    .then((res) => {console.log("Response: Success")})
+    .catch((err) => {console.log("Error: ", err)})
     return {
       success: true,
       message: "User created successfully",
