@@ -3,11 +3,11 @@ import PageTitle from "@/components/page-title";
 import { IAppointment } from "@/interfaces";
 import { getAppointmentById } from "@/server-actions/appointments";
 import { Button, Input, message } from "antd";
-import React, { useEffect, useRef } from "react";
+import React, { Suspense, useEffect, useRef } from "react";
 import AppointmentReceipt from "./_components/appointment-receipt";
 import { useSearchParams } from "next/navigation";
 
-function AppointmentConfirmation() {
+function AppointmentConfirmationContent() {
   const searchParams = useSearchParams();
 
   const [appointmentId, setAppointmentId] = React.useState(
@@ -109,4 +109,12 @@ function AppointmentConfirmation() {
   );
 }
 
-export default AppointmentConfirmation;
+// export default AppointmentConfirmation
+
+export default function AppointmentConfirmation() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <AppointmentConfirmationContent />
+    </Suspense>
+  )
+};

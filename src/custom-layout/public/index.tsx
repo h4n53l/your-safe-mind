@@ -26,13 +26,13 @@ function PublicLayout({ children }: { children: React.ReactNode }) {
         // </div>
         <div className="navbar bg-primary">
         <div className="flex-1">
-          {/* <img src="logo.svg" className="h-20"/> */}
+          <img src="logo.svg" className="h-20"/>
           <a className="btn btn-ghost text-xl" href="/">YOUR SAFE MIND</a>
         </div>
         <div className="flex-none">
-          <ul className="menu menu-horizontal px-1">
+          {/* <ul className="menu menu-horizontal px-1">
             <li><a>Link</a></li>
-          </ul>
+          </ul> */}
         </div>
       </div>
       )}
