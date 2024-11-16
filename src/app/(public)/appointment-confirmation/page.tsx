@@ -7,7 +7,6 @@ import React, { useEffect, useRef } from "react";
 import AppointmentReceipt from "./_components/appointment-receipt";
 import { useSearchParams } from "next/navigation";
 
-
 function AppointmentConfirmation() {
   const searchParams = useSearchParams();
 
@@ -19,33 +18,33 @@ function AppointmentConfirmation() {
     null
   );
 
-  const handleEmail = async () => {
 
+  const sendAppointmentEmail = async () => {
     try {
-      const response = await fetch('/api/email', {
-        method: 'POST',
+      const response = await fetch("/api/email", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          to: appointment?.patient.email,
-          subject: 'Your Safe Mind Appointment',
-          text: 'I hope this works',
+          to: appointment!.patient.email,
+          subject: "Your Safe Mind Appointment",
+          appointmentDetails: appointment,
+          isPatient: true,
         }),
       });
       const data = await response.json();
       if (data.success) {
-        alert('Email sent successfully!');
+        alert("Email sent successfully!");
       } else {
         throw new Error(data.error);
       }
     } catch (error) {
-      alert('Failed to send email: ' + error);
+      alert("Failed to send email: " + error);
     } finally {
       setLoading(false);
     }
   };
-
 
   const componentRef: any = useRef();
 
@@ -101,7 +100,9 @@ function AppointmentConfirmation() {
       </div>
       {appointment && (
         <div className="flex justify-center gap-5 w-[600px]">
-          <Button type="primary" onClick={handleEmail}>Email Appointment Receipt</Button>
+          <Button type="primary" onClick={sendAppointmentEmail}>
+            Email Appointment Receipt
+          </Button>
         </div>
       )}
     </div>

@@ -70,6 +70,33 @@ function BookAppoinmentPage() {
     setAvailableDoctors([]);
   };
 
+  const handleEmail = async (email: any, details: any, isPatient: Boolean) => {
+    try {
+      const response = await fetch("/api/email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          to: email,
+          subject: "Your Safe Mind Appointment",
+          appointmentDetails: details,
+          patientEmail: isPatient,
+        }),
+      });
+      const data = await response.json();
+      if (data.success) {
+        alert("Email sent successfully!");
+      } else {
+        throw new Error(data.error);
+      }
+    } catch (error) {
+      alert("Failed to send email: " + error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const getPaymentIntent = async () => {
     try {
       setLoadingPaymentIntent(true);
@@ -105,7 +132,11 @@ function BookAppoinmentPage() {
       }
 
       message.success("Appointment booked successfully");
+      await handleEmail(selectedDoctor?.email, response.data, false)
+      await handleEmail(patientDetails.email, response.data, true)
+        
       router.push(`/appointment-confirmation?id=${response.data._id}`);
+     
     } catch (error: any) {
       message.error(error.message);
     }
