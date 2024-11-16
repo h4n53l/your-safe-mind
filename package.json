@@ -13,6 +13,7 @@
     "@stripe/react-stripe-js": "^2.8.1",
     "antd": "^5.21.6",
     "dayjs": "^1.11.13",
+    "emailjs": "^4.0.3",
     "firebase": "^11.0.1",
     "lucide-react": "^0.454.0",
     "mongoose": "^8.8.0",

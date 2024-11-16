@@ -1,13 +1,10 @@
 import { UserButton, useUser } from "@clerk/nextjs";
-import { currentUser } from "@clerk/nextjs/server";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
 
 function PublicLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const isAuthRoute = pathname.includes("/sign");
-  const { isSignedIn, user, isLoaded } = useUser()
 
   return (
     <div>

@@ -23,8 +23,8 @@ function AppointmentReceipt({ appointment }: IAppointmentReceiptProps) {
           </h1>
 
           <div className="text-sm">
-            <p>Hyderabad , Telangana</p>
-            <p>+91 1234567890</p>
+            <p>Appointment ID: </p>
+            <p>{appointment._id}</p>
           </div>
         </div>
 
@@ -36,7 +36,7 @@ function AppointmentReceipt({ appointment }: IAppointmentReceiptProps) {
 
         <div className="flex flex-col gap-2 mt-5">
           {renderProperty("Doctor", appointment.doctor.name)}
-          {renderProperty("Specialist", appointment.specialist)}
+          {renderProperty("Specialist", appointment.specialist.toUpperCase())}
           {renderProperty("Date", appointment.date)}
           {renderProperty("Time", appointment.time)}
           {renderProperty("Fee", `$ ${appointment.fee}`)}

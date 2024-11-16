@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, message, Modal } from "antd";
+import { useStripe, useElements, PaymentElement, AddressElement } from "@stripe/react-stripe-js";
 
 interface CreditCardFromProps {
   showCreditCardForm: boolean;
@@ -57,7 +58,7 @@ function CreditCardFrom({
         <PaymentElement />
         <AddressElement
           options={{
-            allowedCountries: ["US"],
+            // allowedCountries: ["US", "UK", "GB"],
             mode: "billing",
           }}
         />

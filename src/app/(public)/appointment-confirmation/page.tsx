@@ -5,8 +5,8 @@ import { getAppointmentById } from "@/server-actions/appointments";
 import { Button, Input, message } from "antd";
 import React, { useEffect, useRef } from "react";
 import AppointmentReceipt from "./_components/appointment-receipt";
-import { useReactToPrint } from "react-to-print";
 import { useSearchParams } from "next/navigation";
+
 
 function AppointmentConfirmation() {
   const searchParams = useSearchParams();
@@ -18,11 +18,37 @@ function AppointmentConfirmation() {
   const [appointment, setAppointment] = React.useState<IAppointment | null>(
     null
   );
+
+  const handleEmail = async () => {
+
+    try {
+      const response = await fetch('/api/email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          to: appointment?.patient.email,
+          subject: 'Your Safe Mind Appointment',
+          text: 'I hope this works',
+        }),
+      });
+      const data = await response.json();
+      if (data.success) {
+        alert('Email sent successfully!');
+      } else {
+        throw new Error(data.error);
+      }
+    } catch (error) {
+      alert('Failed to send email: ' + error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+
   const componentRef: any = useRef();
 
-  const handlePrint: any = useReactToPrint({
-    content: () => componentRef.current,
-  });
   const getData = async () => {
     try {
       setLoading(true);
@@ -74,11 +100,8 @@ function AppointmentConfirmation() {
         </div>
       </div>
       {appointment && (
-        <div className="flex justify-end gap-5 w-[600px]">
-          <Button>Download</Button>
-          <Button type="primary" onClick={handlePrint}>
-            Print
-          </Button>
+        <div className="flex justify-center gap-5 w-[600px]">
+          <Button type="primary" onClick={handleEmail}>Email Appointment Receipt</Button>
         </div>
       )}
     </div>
