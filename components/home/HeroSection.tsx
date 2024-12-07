@@ -1,7 +1,7 @@
 const HeroSection = () => {
   return (
 
-    <div className="diff aspect-[16/9] ">
+    <div className="diff aspect-[12/6] ">
       <div className="diff-item-1">
         <div className="text-primary-content text-center grid place-content-center">
           <h1 className="text-4xl font-extrabold text-primary">
@@ -17,14 +17,14 @@ const HeroSection = () => {
           </p>
           </div>
           <div>
-          <button className="btn btn-primary ">Start your Journey</button>
+          <button className="btn btn-primary">Start Your Journey</button>
         </div>
         </div>
       </div>
       <div className="diff-item-2">
         <div className="glass text-primary-content text-center grid place-content-center">
           <h1 className="text-4xl font-extrabold text-primary">
-            Feeling overwhelmed by life's challenges?
+            Feeling Overwhelmed By Life's Challenges?
           </h1>
           <div className="text-xl text-center max-w-3xl text-body">
           <p className="pt-6 pb- text-info ">
