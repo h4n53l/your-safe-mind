@@ -1,4 +1,4 @@
-const Footer = () => {
+const Bottom = () => {
     return (
 <footer className="footer bg-neutral text-neutral-content items-center p-4">
   <aside className="grid-flow-col items-center">
@@ -27,4 +27,4 @@ const Footer = () => {
     );
 }
 
-export default Footer;
+export default Bottom;
