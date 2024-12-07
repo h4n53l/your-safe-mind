@@ -1,3 +1,5 @@
+'use client'
+
 import { useState, useRef, useEffect, MouseEvent } from 'react';
 
 interface ImageComparisonSliderProps {
