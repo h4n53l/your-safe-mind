@@ -8,11 +8,40 @@ export default {
   ],
   theme: {
     extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+      fontFamily: {
+        serif: ['var(--font-crimson)', 'serif'],
+        body: ['var(--font-lora)', 'serif'],
+        display: ['var(--font-cormorant)', 'serif'],
       },
     },
   },
-  plugins: [],
+  daisyui: {
+    themes: [
+      {
+        mytheme: {
+          
+"primary": "#048C66",
+          
+"secondary": "#78BFA5",
+          
+"accent": "#B0D9CA",
+          
+"neutral": "#f2f2f2",
+          
+"base-100": "#F2F2F2",
+          
+"info": "#048C5A",
+          
+"success": "#00ff00",
+          
+"warning": "#ffff00",
+          
+"error": "#ff0000",
+          },
+        },
+      ],
+    },
+  plugins: [
+    require('daisyui'),
+  ],
 } satisfies Config;
