@@ -1,12 +1,11 @@
 import type { Config } from "tailwindcss";
-const flowbite = require("flowbite-react/tailwind");
 
 export default {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
-    flowbite.content(),
+    'node_modules/preline/dist/*.js',
   ],
   theme: {
     extend: {
@@ -17,34 +16,7 @@ export default {
       },
     },
   },
-  daisyui: {
-    themes: [
-      {
-        mytheme: {
-          
-"primary": "#048C66",
-          
-"secondary": "#78BFA5",
-          
-"accent": "#B0D9CA",
-          
-"neutral": "#f2f2f2",
-          
-"base-100": "#F2F2F2",
-          
-"info": "#048C5A",
-          
-"success": "#00ff00",
-          
-"warning": "#ffff00",
-          
-"error": "#ff0000",
-          },
-        },
-      ],
-    },
   plugins: [
-    require('daisyui'),
-    flowbite.plugin(),
+    require('preline/plugin'),
   ],
 } satisfies Config;
