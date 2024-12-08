@@ -18,7 +18,7 @@ const FAQSection = () => {
           <div className="space-y-4">
             <details
               className="group border-s-4 border-green-300 bg-gray-50 p-6 [&_summary::-webkit-details-marker]:hidden"
-              open
+              open={true}
             >
               <summary className="flex cursor-pointer items-center justify-between gap-1.5">
                 <h2 className="text-lg font-medium text-green-600">
@@ -52,7 +52,7 @@ const FAQSection = () => {
             </details>
             <details
               className="group border-s-4 border-green-300 bg-gray-50 p-6 [&_summary::-webkit-details-marker]:hidden"
-              open
+              open={false}
             >
               <summary className="flex cursor-pointer items-center justify-between gap-1.5">
                 <h2 className="text-lg font-medium text-green-600">
@@ -86,7 +86,7 @@ const FAQSection = () => {
             </details>
             <details
               className="group border-s-4 border-green-300 bg-gray-50 p-6 [&_summary::-webkit-details-marker]:hidden"
-              open
+              open={false}
             >
               <summary className="flex cursor-pointer items-center justify-between gap-1.5">
                 <h2 className="text-lg font-medium text-green-600">
