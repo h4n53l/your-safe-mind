@@ -1,3 +1,4 @@
+import PrelineScript from "@/components/PrelineScript";
 import { Html, Head, Main, NextScript } from "next/document";
 
 export default function Document() {
@@ -7,6 +8,7 @@ export default function Document() {
       <body className="antialiased">
         <Main />
         <NextScript />
+        <PrelineScript />
       </body>
     </Html>
   );

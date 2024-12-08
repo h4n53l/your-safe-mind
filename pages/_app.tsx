@@ -1,8 +1,9 @@
-import Layout from "@/components/layout";
+import Layout from "@/components/layout/Layout";
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import { cormorant, crimsonText, lora } from "../fonts/font";
+import PrelineScript from "@/components/PrelineScript";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -17,6 +18,7 @@ export default function App({ Component, pageProps }: AppProps) {
     <Layout>
       <Component {...pageProps} />
     </Layout>
+    <PrelineScript />
     </main>
     </>
 );

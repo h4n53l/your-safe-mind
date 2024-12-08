@@ -4,12 +4,16 @@ import Navbar from "./Navbar";
 
 const Layout = ({children}: any) => {
     return (
-        <>
+        <div className="min-h-screen flex flex-col">
         <Navbar />
+        <div
+        className="flex-grow"
+        >
         <CookieFloater />
             {children}
+            </div>
         <Footer />
-         </>
+         </div>
     );
 }
 

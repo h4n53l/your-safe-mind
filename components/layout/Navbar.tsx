@@ -26,7 +26,7 @@ const Navbar = () => {
           aria-expanded="false"
           aria-controls="hs-navbar-example"
           aria-label="Toggle navigation"
-          data-hs-collapse="#hs-navbar-example"
+          data-hs-collapse="coming-soonhs-navbar-example"
         >
           <svg
             className="hs-collapse-open:hidden shrink-0 size-4"
@@ -73,13 +73,13 @@ const Navbar = () => {
       <div className="flex flex-col gap-5 mt-5 sm:flex-row sm:items-center sm:justify-end sm:mt-0 sm:ps-5">
         <a
           className="text-gray-700 transition hover:text-green-700/75 text-lg"
-          href="#"
+          href="coming-soon"
         >
           About Us
         </a>
         <a
           className="text-gray-700 transition hover:text-green-700/75 text-lg"
-          href="#"
+          href="coming-soon"
         >
           <button 
           className="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-green-600 text-white hover:bg-green-700 focus:outline-none focus:bg-green-700 disabled:opacity-50 disabled:pointer-events-none"
