@@ -4,6 +4,7 @@ import type { AppProps } from "next/app";
 import Head from "next/head";
 import { cormorant, crimsonText, lora } from "../fonts/font";
 import PrelineScript from "@/components/PrelineScript";
+import AnimatedGradientBackground from "@/components/layout/AnimatedGradientBackground";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -16,6 +17,7 @@ export default function App({ Component, pageProps }: AppProps) {
       </Head>
       <main className={`${crimsonText.variable} ${lora.variable} ${cormorant.variable}`}>
     <Layout>
+      <AnimatedGradientBackground/>
       <Component {...pageProps} />
     </Layout>
     <PrelineScript />

@@ -114,8 +114,8 @@ Book a Session Today</button>
 
     {/* Top Image (Before) */}
     <div 
-      className="absolute inset-0 select-none"
-      style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)`, background: 'white'}}
+      className="absolute inset-0 select-none bg-gradient-to-r from-emerald-50 to-emerald-50"
+      style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)`}}
     >
       <img 
         src={beforeImage} 

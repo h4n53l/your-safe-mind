@@ -13,9 +13,10 @@
     --foreground: #ededed;
   }
 }
-
 body {
-  color: var(--foreground);
-  background: "lemon-green"
-  font-family: Arial, Helvetica, sans-serif;
-} */
+  background-color: #e5e5f7;
+  opacity: 0.3;
+  background-image: radial-gradient(circle at center center, #95f8b3, #e5e5f7), repeating-radial-gradient(circle at center center, #95f8b3, #95f8b3, 40px, transparent 80px, transparent 40px);
+  background-blend-mode: multiply;
+} 
+*/
