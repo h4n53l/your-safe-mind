@@ -8,12 +8,14 @@ const HowItWorks = () => {
           {/* Title */}
           <div className="max-w-3xl mb-10 lg:mb-14">
             <h2 className="text-3xl text-center font-extrabold text-white md:text-4xl md:leading-tight">
-              Our Approach
+              Our Simple Process
             </h2>
             <p className="mt-1 text-white">
-              This profound insight guides our comprehensive strategy — from
-              meticulous research and strategic planning to the seamless
-              execution of brand development and website or product deployment.
+              Our approach combines professional expertise with personalized
+              care, ensuring you receive the support you need in a way that fits
+              your life. Whether you're dealing with specific challenges or
+              seeking personal growth, our structured process helps you move
+              forward with confidence.
             </p>
           </div>
           {/* End Title */}
@@ -53,7 +55,7 @@ const HowItWorks = () => {
                     <span className="text-base font-extrabold">
                       Initial Consultation:
                     </span>
-                    <br/>
+                    <br />
                     We’ll discuss your needs and match you with the right
                     therapist.
                   </p>
@@ -78,7 +80,7 @@ const HowItWorks = () => {
                     <span className="text-base font-extrabold">
                       Product Development and Testing:
                     </span>
-                    <br/>
+                    <br />
                     Together, we’ll create a plan tailored to your goals.
                   </p>
                 </div>
@@ -102,7 +104,7 @@ const HowItWorks = () => {
                     <span className="text-base font-extrabold">
                       Ongoing Support:
                     </span>
-                    <br/>
+                    <br />
                     Regular sessions and check-ins to track your progress.
                     Adjustments as Needed: We’ll adapt our approach to ensure
                     you’re getting the most out of therapy.
@@ -111,7 +113,6 @@ const HowItWorks = () => {
                 {/* End Right Content */}
               </div>
               {/* End Item */}
-
             </div>
             {/* End Timeline */}
           </div>
