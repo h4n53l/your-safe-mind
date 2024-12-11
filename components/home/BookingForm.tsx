@@ -2,10 +2,11 @@ const BookingForm = () => {
   return (
     <>
       {/* Hire Us */}
-      <div className="max-w-[85rem] px-4 py-10 border-green rounded-xl  sm:px-6 lg:px-8 lg:py-14 mx-auto">
+      <div className="">
+      <div className="max-w-[85rem] px-4 py-10 border-green-500 rounded-xl  sm:px-6 lg:px-8 lg:py-14 mx-auto">
         <div className="max-w-xl mx-auto">
           <div className="text-center">
-            <h1 className="text-3xl font-bold text-gray-800 sm:text-4xl dark:text-white">
+            <h1 className="text-3xl font-bold text-green-600 sm:text-4xl dark:text-white">
               Book Your Journey to Well-being
             </h1>
             <p className="mt-1 text-gray-600 dark:text-neutral-400">
@@ -44,7 +45,7 @@ const BookingForm = () => {
                       type="text"
                       name="hs-lastname-hire-us-2"
                       id="hs-lastname-hire-us-2"
-                      className="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-green-500 focus:ring-green-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
+                      className="py-3 px-4 block w-full border-green-500 rounded-lg text-sm focus:border-green-500 focus:ring-green-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
                     />
                   </div>
                 </div>
@@ -61,7 +62,7 @@ const BookingForm = () => {
                     name="hs-work-email-hire-us-2"
                     id="hs-work-email-hire-us-2"
                     autoComplete="email"
-                    className="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-green-500 focus:ring-green-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
+                    className="py-3 px-4 block w-full border-green-500 rounded-lg text-sm focus:border-green-500 focus:ring-green-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
                   />
                 </div>
                 {/* Grid */}
@@ -77,7 +78,7 @@ const BookingForm = () => {
                       type="text"
                       name="hs-company-hire-us-2"
                       id="hs-company-hire-us-2"
-                      className="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-green-500 focus:ring-green-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
+                      className="py-3 px-4 block w-full border-green-500 rounded-lg text-sm focus:border-green-500 focus:ring-green-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
                     />
                   </div>
                   <div>
@@ -91,7 +92,7 @@ const BookingForm = () => {
                       type="text"
                       name="hs-company-website-hire-us-2"
                       id="hs-company-website-hire-us-2"
-                      className="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-green-500 focus:ring-green-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
+                      className="py-3 px-4 block w-full border-green-500 rounded-lg text-sm focus:border-green-500 focus:ring-green-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
                     />
                   </div>
                 </div>
@@ -107,7 +108,7 @@ const BookingForm = () => {
                     id="hs-about-hire-us-2"
                     name="hs-about-hire-us-2"
                     rows={4}
-                    className="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-green-500 focus:ring-green-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
+                    className="py-3 px-4 block w-full border-green-500 rounded-lg text-sm focus:border-green-500 focus:ring-green-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
                     defaultValue={""}
                   />
                 </div>
@@ -120,7 +121,7 @@ const BookingForm = () => {
                     id="remember-me"
                     name="remember-me"
                     type="checkbox"
-                    className="shrink-0 mt-1.5 border-gray-200 rounded text-green-600 focus:ring-green-500 dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-green-500 dark:checked:border-green-500 dark:focus:ring-offset-gray-800"
+                    className="shrink-0 mt-1.5 border-green-500 rounded text-green-600 focus:ring-green-500 dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-green-500 dark:checked:border-green-500 dark:focus:ring-offset-gray-800"
                   />
                 </div>
                 <div className="ms-3">
@@ -155,6 +156,7 @@ const BookingForm = () => {
             </form>
             {/* End Form */}
           </div>
+        </div>
         </div>
       </div>
       {/* End Hire Us */}
