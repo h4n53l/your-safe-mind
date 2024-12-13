@@ -6,7 +6,7 @@ const FeaturesSection = () => {
     <div className="grid sm:grid-cols-2 lg:grid-cols-3 items-center gap-12">
       {/* Icon Block */}
       <div className="text-center">
-        <div className="relative flex mx-auto justify-center items-center size-12 bg-white rounded-full before:absolute before:-inset-px before:-z-[1] before:bg-gradient-to-br before:from-green-600 before:via-transparent before:to-green-400 before:rounded-full dark:bg-neutral-900">
+        <div className="relative flex mx-auto justify-center items-center size-12 bg-white rounded-xl before:absolute before:-inset-px before:-z-[1] before:bg-gradient-to-br before:from-green-600 before:via-transparent before:to-green-400 before:rounded-xl dark:bg-neutral-900">
           <img 
           src="support.svg"
           className="w-10 h-10"
@@ -24,7 +24,7 @@ const FeaturesSection = () => {
       {/* End Icon Block */}
       {/* Icon Block */}
       <div className="text-center">
-        <div className="relative flex mx-auto justify-center items-center size-12 bg-white rounded-full before:absolute before:-inset-px before:-z-[1] before:bg-gradient-to-br before:from-green-600 before:via-transparent before:to-green-400 before:rounded-full dark:bg-neutral-900">
+        <div className="relative flex mx-auto justify-center items-center size-12 bg-white rounded-xl before:absolute before:-inset-px before:-z-[1] before:bg-gradient-to-br before:from-green-600 before:via-transparent before:to-green-400 before:rounded-xl dark:bg-neutral-900">
         <img 
           src="shield.svg"
           className="w-8 h-8"
@@ -43,7 +43,7 @@ const FeaturesSection = () => {
 
       {/* Icon Block */}
       <div className="text-center">
-        <div className="relative flex mx-auto justify-center items-center size-12 bg-white rounded-full before:absolute before:-inset-px before:-z-[1] before:bg-gradient-to-br before:from-green-600 before:via-transparent before:to-green-400 before:rounded-full dark:bg-neutral-900">
+        <div className="relative flex mx-auto justify-center items-center size-12 bg-white rounded-xl before:absolute before:-inset-px before:-z-[1] before:bg-gradient-to-br before:from-green-600 before:via-transparent before:to-green-400 before:rounded-xl dark:bg-neutral-900">
         <img 
           src="growth.svg"
           className="w-8 h-8"

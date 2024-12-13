@@ -2,6 +2,43 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
+/* Custom styling for date input */
+input[type="date"] {
+  color-scheme: light;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: hue-rotate(85deg) brightness(1.1);
+}
+
+/* Custom styling for date picker calendar popup */
+::-webkit-datetime-edit-fields-wrapper { color: #374151; }
+::-webkit-datetime-edit-text { color: #374151; }
+::-webkit-datetime-edit { padding: 0; }
+::-webkit-inner-spin-button { display: none; }
+::-webkit-calendar-picker-indicator { cursor: pointer; }
+
+/* Override default blue highlight */
+::selection {
+  background-color: #22c55e;
+  color: white;
+}
+
+/* Custom styling for select dropdown */
+select option:checked,
+select option:hover,
+select option:focus,
+select option:active {
+  background: linear-gradient(0deg, #22c55e 0%, #22c55e 100%);
+  background-color: #22c55e !important;
+}
+
+select:focus option:checked {
+  background: #22c55e !important;
+  color: white !important;
+}
 /* :root {
   --background: #f2f2f2;
   --foreground: #171717;
@@ -20,3 +57,5 @@ body {
   background-blend-mode: multiply;
 } 
 */
+
+

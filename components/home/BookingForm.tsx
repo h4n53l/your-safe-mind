@@ -1,166 +1,211 @@
+import { useState, FormEvent } from 'react';
+
 const BookingForm = () => {
+  const [formData, setFormData] = useState<any>({
+    name: '',
+    email: '',
+    date: '',
+    time: '',
+    serviceType: '',
+    message: ''
+  });
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    // Your submission logic here
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
   return (
-    <>
-      {/* Hire Us */}
-      <div className="">
-      <div className="max-w-[85rem] px-4 py-10 border-green-500 rounded-xl  sm:px-6 lg:px-8 lg:py-14 mx-auto">
-        <div className="max-w-xl mx-auto">
-          <div className="text-center">
-            <h1 className="text-3xl font-bold text-green-600 sm:text-4xl dark:text-white">
-              Book Your Journey to Well-being
-            </h1>
-            <p className="mt-1 text-gray-600 dark:text-neutral-400">
-              Take the first step towards positive change. We'll match you with
-              the right professional to support your unique needs.
-            </p>
+    <div className='bg-white flex flex-row justify-center p-12'>
+    <div className="relative group transition-all duration-300 ease-in-out max-w-2xl mx-auto">
+      {/* Animated background effect */}
+      <div className="absolute -inset-1 bg-gradient-to-r from-green-300 via-green-500 to-green-300 
+                      rounded-2xl blur-lg opacity-25 group-hover:opacity-100 
+                      transition duration-1000 group-hover:duration-200 
+                      animate-gradient"></div>
+      
+      {/* Main container */}
+      <div className="relative px-7 py-6 bg-white rounded-xl leading-none">
+      <div className="text-center py-3 pb-6">
+      <h1 className="text-3xl font-bold text-green-600 sm:text-4xl dark:text-white">
+        Book Your Journey to Well-being
+      </h1>
+      <p className="mt-1 py-3 px-6 text-gray-600 dark:text-neutral-400">
+        Take the first step towards positive change. We'll match you with
+        the right professional to support your unique needs.
+      </p>
+    </div>
+        <form onSubmit={handleSubmit} className="space-y-6">
+          {/* Name Input */}
+          <div className="space-y-2">
+            <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+              Full Name
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              value={formData.name}
+              onChange={handleChange}
+              className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-green-300 
+                       focus:border-green-300 transition-all duration-200 outline-none
+                       hover:border-green-200"
+              placeholder="Enter your full name"
+            />
           </div>
-          <div className="mt-12">
-            {/* Form */}
-            <form>
-              <div className="grid gap-4 lg:gap-6">
-                {/* Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
-                  <div>
-                    <label
-                      htmlFor="hs-firstname-hire-us-2"
-                      className="block mb-2 text-sm text-gray-700 font-medium dark:text-white"
-                    >
-                      First Name
-                    </label>
-                    <input
-                      type="text"
-                      name="hs-firstname-hire-us-2"
-                      id="hs-firstname-hire-us-2"
-                      className="py-3 px-4 border-green-600 block w-full rounded-lg text-sm focus:border-green-500 focus:ring-green-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
-                    />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="hs-lastname-hire-us-2"
-                      className="block mb-2 text-sm text-gray-700 font-medium dark:text-white"
-                    >
-                      Last Name
-                    </label>
-                    <input
-                      type="text"
-                      name="hs-lastname-hire-us-2"
-                      id="hs-lastname-hire-us-2"
-                      className="py-3 px-4 block w-full border-green-500 rounded-lg text-sm focus:border-green-500 focus:ring-green-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
-                    />
-                  </div>
-                </div>
-                {/* End Grid */}
-                <div>
-                  <label
-                    htmlFor="hs-work-email-hire-us-2"
-                    className="block mb-2 text-sm text-gray-700 font-medium dark:text-white"
-                  >
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    name="hs-work-email-hire-us-2"
-                    id="hs-work-email-hire-us-2"
-                    autoComplete="email"
-                    className="py-3 px-4 block w-full border-green-500 rounded-lg text-sm focus:border-green-500 focus:ring-green-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
-                  />
-                </div>
-                {/* Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
-                  <div>
-                    <label
-                      htmlFor="hs-company-hire-us-2"
-                      className="block mb-2 text-sm text-gray-700 font-medium dark:text-white"
-                    >
-                      To do: Calendar
-                    </label>
-                    <input
-                      type="text"
-                      name="hs-company-hire-us-2"
-                      id="hs-company-hire-us-2"
-                      className="py-3 px-4 block w-full border-green-500 rounded-lg text-sm focus:border-green-500 focus:ring-green-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
-                    />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="hs-company-website-hire-us-2"
-                      className="block mb-2 text-sm text-gray-700 font-medium dark:text-white"
-                    >
-                      To do: Time Component
-                    </label>
-                    <input
-                      type="text"
-                      name="hs-company-website-hire-us-2"
-                      id="hs-company-website-hire-us-2"
-                      className="py-3 px-4 block w-full border-green-500 rounded-lg text-sm focus:border-green-500 focus:ring-green-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
-                    />
-                  </div>
-                </div>
-                {/* End Grid */}
-                <div>
-                  <label
-                    htmlFor="hs-about-hire-us-2"
-                    className="block mb-2 text-sm text-gray-700 font-medium dark:text-white"
-                  >
-                    Your Symptoms
-                  </label>
-                  <textarea
-                    id="hs-about-hire-us-2"
-                    name="hs-about-hire-us-2"
-                    rows={4}
-                    className="py-3 px-4 block w-full border-green-500 rounded-lg text-sm focus:border-green-500 focus:ring-green-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
-                    defaultValue={""}
-                  />
-                </div>
-              </div>
-              {/* End Grid */}
-              {/* Checkbox */}
-              <div className="mt-3 flex">
-                <div className="flex">
-                  <input
-                    id="remember-me"
-                    name="remember-me"
-                    type="checkbox"
-                    className="shrink-0 mt-1.5 border-green-500 rounded text-green-600 focus:ring-green-500 dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-green-500 dark:checked:border-green-500 dark:focus:ring-offset-gray-800"
-                  />
-                </div>
-                <div className="ms-3">
-                  <label
-                    htmlFor="remember-me"
-                    className="text-sm text-gray-600 dark:text-neutral-400"
-                  >
-                    By submitting this form I have read and acknowledged the{" "}
-                    <a
-                      className="text-green-600 decoration-2 hover:underline focus:outline-none focus:underline font-medium dark:text-green-500"
-                      href="#"
-                    >
-                      Privact policy
-                    </a>
-                  </label>
-                </div>
-              </div>
-              {/* End Checkbox */}
-              <div className="mt-6 grid">
-                <button
-                  type="submit"
-                  className="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-green-600 text-white hover:bg-green-700 focus:outline-none focus:bg-green-700 disabled:opacity-50 disabled:pointer-events-none"
-                >
-                  Schedule
-                </button>
-              </div>
-              <div className="mt-3 text-center">
-                <p className="text-sm text-gray-500 dark:text-neutral-500">
-                  We'll get back to you in 1-2 business days.
-                </p>
-              </div>
-            </form>
-            {/* End Form */}
+
+          {/* Email Input */}
+          <div className="space-y-2">
+            <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+              Email Address
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              value={formData.email}
+              onChange={handleChange}
+              className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-green-300 
+                       focus:border-green-300 transition-all duration-200 outline-none
+                       hover:border-green-200"
+              placeholder="your@email.com"
+            />
+          </div>
+
+          {/* Date and Time Row */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {/* Date Input */}
+            <div className="space-y-2">
+              <label htmlFor="date" className="block text-sm font-medium text-gray-700">
+                Preferred Date
+              </label>
+              <input
+                type="date"
+                id="date"
+                name="date"
+                required
+                value={formData.date}
+                onChange={handleChange}
+                className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-green-300 
+                         focus:border-green-300 transition-all duration-200 outline-none
+                         hover:border-green-200"
+              />
+            </div>
+
+            {/* Time Input */}
+            <div className="space-y-2">
+              <label htmlFor="time" className="block text-sm font-medium text-gray-700">
+                Preferred Time
+              </label>
+              <select
+                id="time"
+                name="time"
+                required
+                value={formData.time}
+                onChange={handleChange}
+                className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-green-300 
+                         focus:border-green-300 transition-all duration-200 outline-none
+                         hover:border-green-200"
+              >
+                <option value="">Select a time</option>
+                <option value="09:00">9:00 AM</option>
+                <option value="10:00">10:00 AM</option>
+                <option value="11:00">11:00 AM</option>
+                <option value="14:00">2:00 PM</option>
+                <option value="15:00">3:00 PM</option>
+                <option value="16:00">4:00 PM</option>
+              </select>
+            </div>
+          </div>
+
+          {/* Service Type */}
+          <div className="space-y-2">
+            <label htmlFor="serviceType" className="block text-sm font-medium text-gray-700">
+              Type of Session
+            </label>
+            <select
+              id="serviceType"
+              name="serviceType"
+              required
+              value={formData.serviceType}
+              onChange={handleChange}
+              className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-green-300 
+                       focus:border-green-300 transition-all duration-200 outline-none
+                       hover:border-green-200"
+            >
+              <option value="">Select service type</option>
+              <option value="individual">Individual Therapy</option>
+              <option value="couples">Couples Therapy</option>
+              <option value="family">Family Therapy</option>
+              <option value="group">Group Therapy</option>
+            </select>
+          </div>
+
+          {/* Message Input */}
+          <div className="space-y-2">
+            <label htmlFor="message" className="block text-sm font-medium text-gray-700">
+              Additional Notes
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              rows={4}
+              value={formData.message}
+              onChange={handleChange}
+              className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-green-300 
+                       focus:border-green-300 transition-all duration-200 outline-none
+                       hover:border-green-200 resize-none"
+              placeholder="Any specific concerns or questions?"
+            />
+                  <div className="mt-3 flex flex-row justify-center">
+          <div className="flex">
+            <input
+              id="remember-me"
+              name="remember-me"
+              type="checkbox"
+              className="shrink-0 mt-1.5 border-green-500 rounded text-green-600 focus:ring-green-500 dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-green-500 dark:checked:border-green-500 dark:focus:ring-offset-gray-800"
+            />
+          </div>
+          <div className="ms-3">
+            <label
+              htmlFor="remember-me"
+              className="text-sm text-gray-600 dark:text-neutral-400"
+            >
+              By submitting this form I have read and acknowledged the{" "}
+              <a
+                className="text-green-600 decoration-2 hover:underline focus:outline-none focus:underline font-medium dark:text-green-500"
+                href="#"
+              >
+                Privacy policy
+              </a>
+            </label>
           </div>
         </div>
+          </div>
+          {/* Submit Button */}
+          <div className="mt-6 flex flex-row justify-center">
+          <button className="w-auto font-semibold py-4 px-12 mx-6 uppercase text-white bg-gradient-to-r from-green-400 to-green-500 
+                           rounded-lg hover:from-green-500 hover:to-green-600 
+                           transform hover:-translate-y-0.5 transition-all duration-200">
+            Book Appointment
+          </button>
         </div>
+        <div className="mt-3 text-center">
+          <p className="text-sm text-gray-500 dark:text-neutral-500">
+            We'll get back to you in 1-2 business days.
+          </p>
+        </div>
+        </form>
       </div>
-      {/* End Hire Us */}
-    </>
+      </div>
+    </div>
   );
 };
 
