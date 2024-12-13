@@ -9,16 +9,84 @@ const BookingForm = () => {
     serviceType: '',
     message: ''
   });
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
+  const handleEmail = async (email: any, details: any, isPatient: Boolean) => {
+    try {
+      const response = await fetch("/api/email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          to: email,
+          subject: "Your Safe Mind Appointment",
+          appointmentDetails: details,
+          patientEmail: isPatient,
+        }),
+      });
+      const data = await response.json();
+      if (data.success) {
+        alert("Email sent successfully!");
+      } else {
+        throw new Error(data.error);
+      }
+    } catch (error) {
+      alert("Failed to send email: " + error);
+    } finally {
+    }
+  };
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Your submission logic here
+    setIsLoading(true);
+
+    console.log(formData.email)
+
+    try {
+      const response = await fetch('/api/booking', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      let details = {
+          name: formData.name,
+          email: formData.email,
+          date: formData.date,
+          time: formData.time,
+          symptom: formData.symptom,
+        }
+
+      // handleEmail(formData.email, details, false)
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setFormData({
+          name: '',
+          email: '',
+          date: new Date(),
+          time: '',
+          serviceType: '',
+          message: ''
+        });
+      } else {
+        throw new Error(data.error || 'Failed to submit booking');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData((prev: any) => ({ ...prev, [name]: value }));
-  };
+  }
 
   return (
     <div className='bg-white flex flex-row justify-center p-12'>
@@ -162,7 +230,7 @@ const BookingForm = () => {
               className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-green-300 
                        focus:border-green-300 transition-all duration-200 outline-none
                        hover:border-green-200 resize-none"
-              placeholder="Any specific concerns or questions?"
+              placeholder="Any specific concerns or symptoms?"
             />
                   <div className="mt-3 flex flex-row justify-center">
           <div className="flex">
