@@ -1,5 +1,5 @@
 import HeroSection from "@/components/home/HeroSection";
-import FeaturesSection from "@/components/home/FeaturesSection";
+import ServicesSection from "@/components/home/ServicesSection";
 import FAQSection from "@/components/home/FAQSection";
 import HowItWorks from "@/components/home/HowItWorks";
 import BookingForm from "@/components/home/BookingForm";
@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <>
     <HeroSection />
-    <FeaturesSection />
+    <ServicesSection />
     <HowItWorks />
     <BookingForm/>
     <FAQSection />

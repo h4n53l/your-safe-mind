@@ -7,10 +7,10 @@ const HowItWorks = () => {
         <div className="max-w-5xl px-4 xl:px-0 py-10 lg:pt-20 lg:pb-20 mx-auto">
           {/* Title */}
           <div className="max-w-3xl mb-10 lg:mb-14">
-            <h2 className="text-3xl text-center font-extrabold text-white md:text-4xl md:leading-tight">
+            <h1 className="text-3xl text-center font-bold text-white md:text-4xl md:leading-tight">
               Our Simple Process
-            </h2>
-            <p className="mt-1 text-white">
+            </h1>
+            <p className="mt-1 text-xl text-center text-gray-200">
               Our approach combines professional expertise with personalized
               care, ensuring you receive the support you need in a way that fits
               your life. Whether you're dealing with specific challenges or

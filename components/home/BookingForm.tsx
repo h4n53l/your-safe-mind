@@ -17,7 +17,7 @@ const BookingForm = () => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev: any) => ({ ...prev, [name]: value }));
   };
 
   return (
@@ -35,7 +35,7 @@ const BookingForm = () => {
       <h1 className="text-3xl font-bold text-green-600 sm:text-4xl dark:text-white">
         Book Your Journey to Well-being
       </h1>
-      <p className="mt-1 py-3 px-6 text-gray-600 dark:text-neutral-400">
+      <p className="mt-1 py-3 px-6 text-xl text-gray-600 dark:text-neutral-400">
         Take the first step towards positive change. We'll match you with
         the right professional to support your unique needs.
       </p>
