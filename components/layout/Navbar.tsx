@@ -1,7 +1,19 @@
 import { useState } from "react";
 
+export const scrollToBooking = () => {
+  // Check if we're on the homepage
+  const bookingForm = document.getElementById('booking-form');
+  if (bookingForm) {
+    bookingForm.scrollIntoView({ behavior: 'smooth' });
+  } else {
+    // If not on homepage, navigate to homepage first then scroll
+    window.location.href = '/#booking-form';
+  }
+};
+
 const Navbar = () => {
 const [open, setOpen] = useState(false)
+
 
     return (
 <header className="relative flex flex-wrap sm:justify-start sm:flex-nowrap w-full bg-white text-sm py-3 dark:bg-neutral-800">
@@ -76,21 +88,19 @@ const [open, setOpen] = useState(false)
     >
       <div className="flex flex-row gap-5 mt-5 mx-5 sm:flex-row sm:font-body sm:text-base sm:items-center sm:justify-end sm:mt-0 sm:ps-5">
         <a
-          className="text-gray-700 transition hover:text-green-700/75 text-lg"
-          href="coming-soon"
+          className="text-green-700 transition hover:text-green-500/75 text-lg font-semibold"
+          href="about"
         >
           About Us
         </a>
-        <a
-          className="text-gray-700 transition hover:text-green-700/75 text-lg"
-          href="coming-soon"
-        >
+
           <button 
-          className="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-green-600 text-white hover:bg-green-700 focus:outline-none focus:bg-green-700 disabled:opacity-50 disabled:pointer-events-none"
+          className="py-3 px-4 inline-flex items-center gap-x-2 text-lg font-semibold rounded-lg border border-transparent bg-green-600 text-white hover:bg-green-700 focus:outline-none focus:bg-green-700 disabled:opacity-50 disabled:pointer-events-none"
+          onClick={scrollToBooking}
           >
           Book a Session
           </button>
-        </a>
+        
       </div>
     </div>
     

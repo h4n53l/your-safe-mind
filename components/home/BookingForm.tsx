@@ -88,7 +88,10 @@ const BookingForm = () => {
   }
 
   return (
-    <div className='bg-white flex flex-row justify-center p-12'>
+    <div 
+    className='bg-white flex flex-row justify-center p-12'
+    id="booking-form"
+    >
     <div className="relative group transition-all duration-300 ease-in-out max-w-2xl mx-auto">
       {/* Animated background effect */}
       <div className="absolute -inset-1 bg-gradient-to-r from-green-300 via-green-500 to-green-300 
@@ -237,6 +240,7 @@ const BookingForm = () => {
               id="remember-me"
               name="remember-me"
               type="checkbox"
+              required
               className="shrink-0 mt-1.5 border-green-500 rounded text-green-600 focus:ring-green-500 dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-green-500 dark:checked:border-green-500 dark:focus:ring-offset-gray-800"
             />
           </div>
@@ -248,7 +252,16 @@ const BookingForm = () => {
               By submitting this form I have read and acknowledged the{" "}
               <a
                 className="text-green-600 decoration-2 hover:underline focus:outline-none focus:underline font-medium dark:text-green-500"
-                href="#"
+                href="terms"
+              >
+                Terms
+              </a>
+              <text> </text>
+              and 
+              <text> </text>
+              <a
+                className="text-green-600 decoration-2 hover:underline focus:outline-none focus:underline font-medium dark:text-green-500"
+                href="policy"
               >
                 Privacy policy
               </a>

@@ -17,7 +17,7 @@ const FAQSection = () => {
           {/* Accordion */}
           <div className="space-y-4">
             <details
-              className="group border-s-4 border-green-300 bg-gray-50 p-6 [&_summary::-webkit-details-marker]:hidden"
+              className="group border-s-4 rounded-lg border-green-300 bg-gray-50 p-6 [&_summary::-webkit-details-marker]:hidden"
               open={true}
             >
               <summary className="flex cursor-pointer items-center justify-between gap-1.5">
@@ -51,7 +51,7 @@ const FAQSection = () => {
               </p>
             </details>
             <details
-              className="group border-s-4 border-green-300 bg-gray-50 p-6 [&_summary::-webkit-details-marker]:hidden"
+              className="group border-s-4 rounded-lg border-green-300 bg-gray-50 p-6 [&_summary::-webkit-details-marker]:hidden"
               open={false}
             >
               <summary className="flex cursor-pointer items-center justify-between gap-1.5">
@@ -85,7 +85,7 @@ const FAQSection = () => {
               </p>
             </details>
             <details
-              className="group border-s-4 border-green-300 bg-gray-50 p-6 [&_summary::-webkit-details-marker]:hidden"
+              className="group border-s-4 rounded-lg border-green-300 bg-gray-50 p-6 [&_summary::-webkit-details-marker]:hidden"
               open={false}
             >
               <summary className="flex cursor-pointer items-center justify-between gap-1.5">

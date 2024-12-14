@@ -10,7 +10,6 @@ const Layout = ({children}: any) => {
         <div
         className="flex-grow"
         >
-        <CookieFloater />
             {children}
             </div>
         <Footer />

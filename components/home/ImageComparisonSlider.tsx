@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useRef, useEffect, MouseEvent } from 'react';
+import { scrollToBooking } from '../layout/Navbar';
 
 interface ImageComparisonSliderProps {
     beforeImage: string;
@@ -103,7 +104,11 @@ interface ImageComparisonSliderProps {
           </p>
           </div>
           <div>
-          <button type="button" className="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-green-600 text-white hover:bg-green-700 focus:outline-none focus:bg-green-700 disabled:opacity-50 disabled:pointer-events-none">
+          <button 
+          type="button" 
+          className="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-green-600 text-white hover:bg-green-700 focus:outline-none focus:bg-green-700 disabled:opacity-50 disabled:pointer-events-none"
+          onClick={scrollToBooking}
+          >
 Book a Session Today</button>
         </div>
         </div>

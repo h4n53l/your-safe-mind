@@ -56,15 +56,7 @@ const ServicesSection = () => {
                 </div>
 
                 {/* Optional call-to-action button */}
-                <div className="mt-6 text-center">
-                  <button
-                    className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium 
-                                   text-green-600 hover:text-green-700 
-                                   transition-colors duration-200"
-                  >
-                    Learn More →
-                  </button>
-                </div>
+
               </div>
             </div>
           ))}
