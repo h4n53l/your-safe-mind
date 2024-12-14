@@ -1,8 +1,12 @@
 import { SMTPClient } from 'emailjs';
+import { NextApiRequest, NextApiResponse } from 'next';
 
-export async function POST(request: any) {
-  console.log(request.json())
-  const { to, subject, appointmentDetails, isClient } = await request.json();
+
+export default async function handler(  request: NextApiRequest,
+  response: NextApiResponse) {
+  console.log(request.body)
+  const { to, subject, appointmentDetails, isClient } = await request.body;
+  
   const clientEmailHTMLTemplate = `
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #ffffff;">
       <div style="text-align: center; margin-bottom: 30px;">
@@ -110,7 +114,7 @@ export async function POST(request: any) {
     host: 'smtp.gmail.com',
     ssl: true,
     port: 465,
-    timeout: 10000, // Add timeout
+    timeout: 10000, 
   });
   
 
@@ -136,9 +140,9 @@ export async function POST(request: any) {
             ],
     });
 
-    return Response.json({ success: true, message });
+    return response.json({ success: true, message });
   } catch (error) {
     console.error('Full error:', error);
-    return Response.json({ success: false, error: error });
+    return response.json({ success: false, error: error });
   }
 }

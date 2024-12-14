@@ -7,7 +7,7 @@ const BookingForm = () => {
     date: '',
     time: '',
     serviceType: '',
-    message: ''
+    symptom: ''
   });
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
@@ -41,7 +41,13 @@ const BookingForm = () => {
     e.preventDefault();
     setIsLoading(true);
 
-    console.log(formData.email)
+    let details = {
+        name: formData.name,
+        email: formData.email,
+        date: formData.date,
+        time: formData.time,
+        symptom: formData.symptom,
+      }
 
     try {
       const response = await fetch('/api/booking', {
@@ -52,15 +58,8 @@ const BookingForm = () => {
         body: JSON.stringify(formData),
       });
 
-      let details = {
-          name: formData.name,
-          email: formData.email,
-          date: formData.date,
-          time: formData.time,
-          symptom: formData.symptom,
-        }
 
-      // handleEmail(formData.email, details, false)
+      handleEmail(formData.email, details, false)
 
       const data = await response.json();
 
@@ -71,7 +70,7 @@ const BookingForm = () => {
           date: new Date(),
           time: '',
           serviceType: '',
-          message: ''
+          symptom: ''
         });
       } else {
         throw new Error(data.error || 'Failed to submit booking');
@@ -218,14 +217,14 @@ const BookingForm = () => {
 
           {/* Message Input */}
           <div className="space-y-2">
-            <label htmlFor="message" className="block text-sm font-medium text-gray-700">
+            <label htmlFor="symptom" className="block text-sm font-medium text-gray-700">
               Additional Notes
             </label>
             <textarea
-              id="message"
-              name="message"
+              id="symptom"
+              name="symptom"
               rows={4}
-              value={formData.message}
+              value={formData.symptom}
               onChange={handleChange}
               className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-green-300 
                        focus:border-green-300 transition-all duration-200 outline-none
