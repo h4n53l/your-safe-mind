@@ -27,12 +27,12 @@ const BookingForm = () => {
       });
       const data = await response.json();
       if (data.success) {
-        alert("Email sent successfully!");
+        alert("Booking Complete");
       } else {
         throw new Error(data.error);
       }
     } catch (error) {
-      alert("Failed to send email: " + error);
+      alert("Booking error: " + error);
     } finally {
     }
   };
@@ -92,6 +92,17 @@ const BookingForm = () => {
     className='bg-white flex flex-row justify-center p-12'
     id="booking-form"
     >
+          {isLoading && (
+      <div className="absolute z-50 flex justify-stretch mt-56 flex-col text-green-600 items-center space-x-2">
+        <img 
+          src="logo.gif" 
+          alt="Loading..." 
+          className="w-96 h-96"
+        />
+        <span>Processing...</span>
+      </div>)
+      }
+      
     <div className="relative group transition-all duration-300 ease-in-out max-w-2xl mx-auto">
       {/* Animated background effect */}
       <div className="absolute -inset-1 bg-gradient-to-r from-green-300 via-green-500 to-green-300 
@@ -270,6 +281,8 @@ const BookingForm = () => {
         </div>
           </div>
           {/* Submit Button */}
+{!isLoading &&
+  <>
           <div className="mt-6 flex flex-row justify-center">
           <button className="w-auto font-semibold py-4 px-12 mx-6 uppercase text-white bg-gradient-to-r from-green-400 to-green-500 
                            rounded-lg hover:from-green-500 hover:to-green-600 
@@ -282,9 +295,13 @@ const BookingForm = () => {
             We'll get back to you in 1-2 business days.
           </p>
         </div>
+        </>
+        }
         </form>
       </div>
       </div>
+      
+
     </div>
   );
 };
