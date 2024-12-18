@@ -59,7 +59,7 @@ const BookingForm = () => {
       });
 
       handleEmail(formData.email, details, true)
-      handleEmail("e.victory@yoursafemind.com", details, false)
+      handleEmail("eshikhogievictory@gmail.com", details, false)
 
       const data = await response.json();
 
