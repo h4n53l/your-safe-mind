@@ -11,7 +11,7 @@ const BookingForm = () => {
   });
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const handleEmail = async (email: any, details: any, isPatient: Boolean) => {
+  const handleEmail = async (email: string, details: any, isPatient: Boolean) => {
     try {
       const response = await fetch("/api/email", {
         method: "POST",
@@ -58,8 +58,8 @@ const BookingForm = () => {
         body: JSON.stringify(formData),
       });
 
-
-      handleEmail(formData.email, details, false)
+      handleEmail(formData.email, details, true)
+      handleEmail("e.victory@yoursafemind.com", details, false)
 
       const data = await response.json();
 
@@ -67,7 +67,7 @@ const BookingForm = () => {
         setFormData({
           name: '',
           email: '',
-          date: new Date(),
+          date: '',
           time: '',
           serviceType: '',
           symptom: ''
