@@ -11,7 +11,10 @@
   "dependencies": {
     "@stripe/react-stripe-js": "^3.1.0",
     "@types/mongoose": "^5.11.96",
+    "bcryptjs": "^2.4.3",
     "emailjs": "^4.0.3",
+    "jose": "^5.9.6",
+    "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.8.4",
     "next": "15.0.4",
     "preline": "^2.6.0",
@@ -21,6 +24,8 @@
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.9",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/jsonwebtoken": "^9.0.7",
     "@types/node": "^20.17.10",
     "@types/react": "^19",
     "@types/react-dom": "^19",

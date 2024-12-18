@@ -1,5 +1,6 @@
 // pages/privacy-policy.tsx
 export default function PrivacyPolicy() {
+  
     return (
       <div className="min-h-screen">
         {/* Hero Section - Transparent Background */}

@@ -9,7 +9,7 @@ const bookingSchema = new Schema<IBookingDocument>({
   date: { type: Date, required: true },
   time: { type: String, required: true },
   serviceType: { type: String, required: true },
-  message: String,
+  symptom: String,
   createdAt: { type: Date, default: Date.now },
 });
 

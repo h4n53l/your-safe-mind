@@ -5,6 +5,6 @@ export interface IBooking {
     date: Date;
     time: string;
     serviceType: string;
-    message?: string;
+    symptom?: string;
     createdAt?: Date;
   }
