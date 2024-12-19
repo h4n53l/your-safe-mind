@@ -1,4 +1,5 @@
 // pages/admin/index.tsx
+import LoadingComponent from '@/components/LoadingComponent';
 import { useState, useEffect } from 'react';
 
 export default function AdminDashboard() {
@@ -70,7 +71,7 @@ export default function AdminDashboard() {
     fetchBookings();
   }, []);
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return <LoadingComponent/>;
 
   return (
     <div className="container mx-auto p-6">
