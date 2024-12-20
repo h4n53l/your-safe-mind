@@ -65,7 +65,7 @@ const BookingForm = () => {
       });
 
       handleEmail(formData.email, details, true)
-      handleEmail("jonhan17@gmail.com", details, false)
+      handleEmail("eshikhogievictory@gmail.com", details, false)
 
       const data = await response.json();
 
