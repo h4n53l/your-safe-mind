@@ -14,7 +14,7 @@ const BookingForm = () => {
   });
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const handleEmail = async (email: string, details: any, isPatient: Boolean) => {
+  const handleEmail = async (email: string, details: any, isClient: boolean) => {
     try {
       const response = await fetch("/api/email", {
         method: "POST",
@@ -23,9 +23,8 @@ const BookingForm = () => {
         },
         body: JSON.stringify({
           to: email,
-          subject: "Your Safe Mind Appointment",
           appointmentDetails: details,
-          patientEmail: isPatient,
+          isClient,
         }),
       });
       const data = await response.json();
@@ -66,7 +65,7 @@ const BookingForm = () => {
       });
 
       handleEmail(formData.email, details, true)
-      handleEmail("eshikhogievictory@gmail.com", details, false)
+      handleEmail("jonhan17@gmail.com", details, false)
 
       const data = await response.json();
 

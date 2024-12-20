@@ -1,12 +1,20 @@
-import { SMTPClient } from 'emailjs';
-import { NextApiRequest, NextApiResponse } from 'next';
+import { SMTPClient } from "emailjs";
+import { NextApiRequest, NextApiResponse } from "next";
 
+export default async function handler(
+  request: NextApiRequest,
+  response: NextApiResponse
+) {
+  const {
+    to,
+    appointmentDetails,
+    isClient,
+  }: {
+    to: string;
+    appointmentDetails: any;
+    isClient: boolean;
+  } = await request.body;
 
-export default async function handler(  request: NextApiRequest,
-  response: NextApiResponse) {
-  console.log(request.body)
-  const { to, subject, appointmentDetails, isClient } = await request.body;
-  
   const clientEmailHTMLTemplate = `
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #ffffff;">
       <div style="text-align: center; margin-bottom: 30px;">
@@ -16,7 +24,11 @@ export default async function handler(  request: NextApiRequest,
 
       <div style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
         <h2 style="color: #2c3e50; margin-bottom: 15px;">Appointment Details</h2>
-
+   
+        <div style="margin-bottom: 10px;">
+          <strong style="color: #34495e;">Booking ID:</strong>
+          <span style="color: #2c3e50;">${appointmentDetails.bookingId}</span>
+        </div>
 
         <div style="margin-bottom: 10px;">
           <strong style="color: #34495e;">Date & Time:</strong>
@@ -68,6 +80,11 @@ export default async function handler(  request: NextApiRequest,
         <h2 style="color: #2c3e50; margin-bottom: 15px;">Client Information</h2>
         
         <div style="margin-bottom: 10px;">
+          <strong style="color: #34495e;">Booking ID:</strong>
+          <span style="color: #2c3e50;">${appointmentDetails.bookingId}</span>
+        </div>
+        
+        <div style="margin-bottom: 10px;">
           <strong style="color: #34495e;">Name:</strong>
           <span style="color: #2c3e50;">${appointmentDetails.name}</span>
         </div>
@@ -107,42 +124,46 @@ export default async function handler(  request: NextApiRequest,
     </div>
   `;
 
-
   const emailClient = new SMTPClient({
     user: process.env.SMTP_USER,
     password: process.env.SMTP_PASSWORD,
-    host: 'smtp.gmail.com',
+    host: "smtp.gmail.com",
     ssl: true,
     port: 465,
-    timeout: 10000, 
+    timeout: 10000,
   });
-  
-
 
   try {
-      console.log("Attempting to send email")
+    console.log("Attempting to send email");
     const message = await emailClient.sendAsync({
-            text: isClient ? `Appointment Confirmation - ID: ${appointmentDetails.bookingId}
+      text: isClient
+        ? `Appointment Confirmation - ID: ${appointmentDetails.bookingId}
         Date & Time: ${appointmentDetails.date} ${appointmentDetails.time}
         `
-        :
-        `New Client Appointment - ID: ${appointmentDetails.bookingId}
+        : `New Client Appointment - ID: ${appointmentDetails.bookingId}
         Client: ${appointmentDetails.name}
         Date & Time: ${appointmentDetails.date} ${appointmentDetails.time}
         Condition: ${appointmentDetails.symptom}
         Email: ${appointmentDetails.email}
         `,
-            from: process.env.SMTP_FROM!,
-            to: to,
-            subject: subject,
-            attachment: [
-              { data: isClient ? clientEmailHTMLTemplate : therapistHTMLTemplate, alternative: true }
-            ],
+      from: process.env.SMTP_FROM!,
+      to: to,
+      subject: isClient
+      ? `Appointment Confirmation - ID: ${appointmentDetails.bookingId} 
+      `
+      : `New Client Appointment - ID: ${appointmentDetails.bookingId}
+      `,
+      attachment: [
+        {
+          data: isClient ? clientEmailHTMLTemplate : therapistHTMLTemplate,
+          alternative: true,
+        },
+      ],
     });
 
     return response.json({ success: true, message });
   } catch (error) {
-    console.error('Full error:', error);
+    console.error("Full error:", error);
     return response.json({ success: false, error: error });
   }
 }
