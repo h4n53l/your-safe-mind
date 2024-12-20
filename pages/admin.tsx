@@ -3,11 +3,12 @@ import LoadingComponent from '@/components/LoadingComponent';
 import { useState, useEffect } from 'react';
 
 export default function AdminDashboard() {
-  const [bookings, setBookings] = useState([]);
-  const [filteredBookings, setFilteredBookings] = useState([]);
+  const [bookings, setBookings] = useState<any[]>([]);
+  const [filteredBookings, setFilteredBookings] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
   const [sortDirection, setSortDirection] = useState<'asc' | 'desc'>('desc');
+
 
   const fetchBookings = async () => {
     try {
@@ -19,6 +20,29 @@ export default function AdminDashboard() {
       console.error('Error fetching bookings:', error);
     } finally {
       setIsLoading(false);
+    }
+  };
+
+  const handlePaymentUpdate = async (id: string, paid: number) => {
+    try {
+      const response = await fetch('/api/admin/update-payment', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ id, paid }),
+      });
+
+      if (response.ok) {
+        const updatedBookings = bookings.map((booking: any) =>
+          booking._id === id ? { ...booking, paid } : booking
+        );
+        setBookings(updatedBookings);
+        setFilteredBookings(updatedBookings);
+      }
+    } catch (error) {
+      console.error('Error updating payment:', error);
+      alert('Failed to update payment status');
     }
   };
 
@@ -93,32 +117,39 @@ export default function AdminDashboard() {
         <table className="min-w-full bg-white rounded-lg overflow-hidden shadow-lg">
           <thead className="bg-green-500 text-white">
             <tr>
+              <th className="px-6 py-3 text-left">Booking ID</th>
               <th className="px-6 py-3 text-left">Name</th>
               <th className="px-6 py-3 text-left">Email</th>
-              <th 
-                className="px-6 py-3 text-left cursor-pointer hover:bg-green-600"
-                onClick={handleSort}
-              >
+              <th className="px-6 py-3 text-left cursor-pointer" onClick={handleSort}>
                 Date {sortDirection === 'asc' ? '↑' : '↓'}
               </th>
               <th className="px-6 py-3 text-left">Time</th>
               <th className="px-6 py-3 text-left">Service</th>
+              <th className="px-6 py-3 text-left">Payment</th>
               <th className="px-6 py-3 text-left">Actions</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-200">
             {filteredBookings.map((booking: any) => (
               <tr key={booking._id} className="hover:bg-gray-50">
+                <td className="px-6 py-4 font-mono">{booking.bookingId}</td>
                 <td className="px-6 py-4">{booking.name}</td>
                 <td className="px-6 py-4">{booking.email}</td>
                 <td className="px-6 py-4">{new Date(booking.date).toLocaleDateString()}</td>
                 <td className="px-6 py-4">{booking.time}</td>
                 <td className="px-6 py-4">{booking.serviceType}</td>
                 <td className="px-6 py-4">
+                  <input
+                    type="number"
+                    value={booking.paid}
+                    onChange={(e) => handlePaymentUpdate(booking._id, Number(e.target.value))}
+                    className="w-24 px-2 py-1 border rounded"
+                  />
+                </td>
+                <td className="px-6 py-4">
                   <button
                     onClick={() => handleDelete(booking._id)}
-                    className="text-red-600 hover:text-red-800 font-medium 
-                             transition-colors duration-200"
+                    className="text-red-600 hover:text-red-800 font-medium"
                   >
                     Delete
                   </button>

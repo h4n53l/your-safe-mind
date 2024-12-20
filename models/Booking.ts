@@ -1,16 +1,25 @@
-import mongoose, { Document, Schema } from 'mongoose';
-import { IBooking } from '../types/booking';
+import mongoose from 'mongoose';
 
-export interface IBookingDocument extends IBooking, Document {}
-
-const bookingSchema = new Schema<IBookingDocument>({
-  name: { type: String, required: true },
-  email: { type: String, required: true },
-  date: { type: Date, required: true },
-  time: { type: String, required: true },
-  serviceType: { type: String, required: true },
+const BookingSchema = new mongoose.Schema({
+  bookingId: {
+    type: String,
+    required: true,
+    unique: true
+  },
+  name: String,
+  email: String,
+  date: Date,
+  time: String,
+  serviceType: String,
   symptom: String,
-  createdAt: { type: Date, default: Date.now },
+  paid: {
+    type: Number,
+    default: 0
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now
+  }
 });
 
-export default mongoose.models.Booking || mongoose.model<IBookingDocument>('Booking', bookingSchema);
+export default mongoose.models.Booking || mongoose.model('Booking', BookingSchema);

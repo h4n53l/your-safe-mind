@@ -1,13 +1,16 @@
+import { generateBookingId } from '@/utils/helperFunctions';
 import { useState, FormEvent } from 'react';
 
 const BookingForm = () => {
   const [formData, setFormData] = useState<any>({
+    bookingId: '',
     name: '',
     email: '',
     date: '',
     time: '',
     serviceType: '',
-    symptom: ''
+    symptom: '',
+    paid: 0
   });
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
@@ -41,7 +44,11 @@ const BookingForm = () => {
     e.preventDefault();
     setIsLoading(true);
 
+    const bookingId = generateBookingId();
+    const updatedFormData = { ...formData, bookingId };
+
     let details = {
+        bookingId: bookingId,
         name: formData.name,
         email: formData.email,
         date: formData.date,
@@ -55,7 +62,7 @@ const BookingForm = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(updatedFormData),
       });
 
       handleEmail(formData.email, details, true)
@@ -65,12 +72,13 @@ const BookingForm = () => {
 
       if (response.ok) {
         setFormData({
+          bookingId: '',
           name: '',
           email: '',
           date: '',
           time: '',
           serviceType: '',
-          symptom: ''
+          symptom: '',
         });
       } else {
         throw new Error(data.error || 'Failed to submit booking');

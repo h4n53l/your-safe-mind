@@ -122,11 +122,11 @@ export default async function handler(  request: NextApiRequest,
   try {
       console.log("Attempting to send email")
     const message = await emailClient.sendAsync({
-            text: isClient ? `Appointment Confirmation - ID: ${appointmentDetails.name}
+            text: isClient ? `Appointment Confirmation - ID: ${appointmentDetails.bookingId}
         Date & Time: ${appointmentDetails.date} ${appointmentDetails.time}
         `
         :
-        `New Client Appointment
+        `New Client Appointment - ID: ${appointmentDetails.bookingId}
         Client: ${appointmentDetails.name}
         Date & Time: ${appointmentDetails.date} ${appointmentDetails.time}
         Condition: ${appointmentDetails.symptom}
