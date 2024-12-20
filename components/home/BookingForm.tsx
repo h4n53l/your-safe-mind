@@ -207,6 +207,8 @@ const BookingForm = () => {
                 <option value="09:00">9:00 AM</option>
                 <option value="10:00">10:00 AM</option>
                 <option value="11:00">11:00 AM</option>
+                <option value="12:00">12:00 NOON</option>
+                <option value="13:00">1:00 PM</option>
                 <option value="14:00">2:00 PM</option>
                 <option value="15:00">3:00 PM</option>
                 <option value="16:00">4:00 PM</option>

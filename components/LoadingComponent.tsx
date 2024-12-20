@@ -1,12 +1,11 @@
 const LoadingComponent = () => {
     return (
-        <div className="absolute z-50 flex justify-center mt-56 flex-col text-green-600 items-center space-x-2">
+        <div className="flex justify-center py-24 text-green-600 h-full w-full">
         <img 
           src="logo.gif" 
           alt="Loading..." 
-          className="w-96 h-96"
+          className="w-96 h-96 rounded-full"
         />
-        <span>Loading...</span>
       </div>
     );
 }

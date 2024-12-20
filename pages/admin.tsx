@@ -95,7 +95,10 @@ export default function AdminDashboard() {
     fetchBookings();
   }, []);
 
-  if (isLoading) return <LoadingComponent/>;
+  if (isLoading) return (
+      <LoadingComponent/>
+)
+
 
   return (
     <div className="container mx-auto p-6">
