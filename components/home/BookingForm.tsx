@@ -65,7 +65,7 @@ const BookingForm = () => {
       });
 
       handleEmail(formData.email, details, true)
-      handleEmail("eshikhogievictory@gmail.com", details, false)
+      handleEmail(process.env.THERAPIST_EMAIL!, details, false)
 
       const data = await response.json();
 
